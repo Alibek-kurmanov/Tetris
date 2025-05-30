@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тетрис - Браузерная игра</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">ТЕТРИС</h1>
+            <div class="score-container">
+                <div class="score-item">
+                    <div class="score-label">Счёт</div>
+                    <div class="score-value" id="current-score">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Рекорд</div>
+                    <div class="score-value" id="high-score">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Уровень</div>
+                    <div class="score-value" id="level">1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="game-board">
+                <div class="tetris-grid" id="game-grid"></div>
+            </div>
+
+            <div class="game-controls">
+                <div class="next-piece">
+                    <div class="next-title">Следующая фигура</div>
+                    <div class="next-grid" id="next-grid"></div>
+                </div>
+                
+                <button class="game-button" id="start-btn">Начать игру</button>
+                <button class="game-button" id="pause-btn" style="display: none;">Пауза</button>
+            </div>
+        </div>
+
+        <div class="mobile-controls">
+            <button class="control-btn" id="rotate-btn">↻</button>
+            <button class="control-btn" id="down-btn">↓</button>
+            <button class="control-btn" id="drop-btn">⬇</button>
+            <button class="control-btn" id="left-btn">←</button>
+            <button class="control-btn" id="right-btn">→</button>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="game-over" id="game-over">
+        <div class="game-over-content">
+            <h2>Игра окончена!</h2>
+            <p id="final-score">Ваш счёт: 0</p>
+            <p id="high-score-message"></p>
+            <button class="game-button" onclick="startNewGame()">Играть снова</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
