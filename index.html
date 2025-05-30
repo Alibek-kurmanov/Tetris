@@ -19,40 +19,43 @@
             justify-content: center;
             align-items: center;
             padding: 10px;
+            touch-action: manipulation;
         }
 
         .game-container {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 20px;
+            padding: 30px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+            width: 100%;
         }
 
         .game-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .game-title {
             color: white;
-            font-size: 2.5em;
+            font-size: 3.5em;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .score-container {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             gap: 20px;
         }
 
         .score-item {
             background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
+            padding: 20px;
             border-radius: 15px;
             text-align: center;
             flex: 1;
@@ -61,26 +64,27 @@
 
         .score-label {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
-            margin-bottom: 5px;
+            font-size: 1.1em;
+            margin-bottom: 8px;
         }
 
         .score-value {
             color: white;
-            font-size: 1.5em;
+            font-size: 2em;
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .game-area {
             display: flex;
-            gap: 20px;
+            gap: 30px;
             align-items: flex-start;
+            justify-content: center;
         }
 
         .game-board {
             background: rgba(0, 0, 0, 0.8);
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.3);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
@@ -88,8 +92,8 @@
 
         .tetris-grid {
             display: grid;
-            grid-template-columns: repeat(10, 25px);
-            grid-template-rows: repeat(20, 25px);
+            grid-template-columns: repeat(10, 35px);
+            grid-template-rows: repeat(20, 35px);
         }
 
         .cell {
@@ -99,7 +103,8 @@
         }
 
         .cell.filled {
-            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         .cell.I { background: #00f0f0; }
@@ -113,12 +118,13 @@
         .game-controls {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+            min-width: 200px;
         }
 
         .next-piece {
             background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
+            padding: 20px;
             border-radius: 15px;
             text-align: center;
             backdrop-filter: blur(5px);
@@ -126,30 +132,31 @@
 
         .next-title {
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: bold;
+            font-size: 1.2em;
         }
 
         .next-grid {
             display: grid;
-            grid-template-columns: repeat(4, 20px);
-            grid-template-rows: repeat(4, 20px);
-            gap: 1px;
+            grid-template-columns: repeat(4, 25px);
+            grid-template-rows: repeat(4, 25px);
+            gap: 2px;
             justify-content: center;
         }
 
         .next-cell {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .game-button {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 15px 25px;
+            padding: 18px 30px;
             border-radius: 15px;
-            font-size: 1.1em;
+            font-size: 1.3em;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -167,27 +174,66 @@
 
         .mobile-controls {
             display: none;
+            margin-top: 30px;
+        }
+
+        .controls-grid {
+            display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .control-btn {
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 1.2em;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.8em;
+            font-weight: bold;
             cursor: pointer;
             backdrop-filter: blur(5px);
             transition: all 0.2s ease;
             user-select: none;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .control-btn:active {
             background: rgba(255, 255, 255, 0.4);
             transform: scale(0.95);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .control-btn.rotate {
+            grid-column: 2;
+        }
+
+        .control-btn.down {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .control-btn.left {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .control-btn.right {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .control-btn.drop {
+            grid-column: 2;
+            grid-row: 3;
         }
 
         .game-over {
@@ -201,45 +247,105 @@
             justify-content: center;
             align-items: center;
             backdrop-filter: blur(5px);
+            z-index: 1000;
         }
 
         .game-over-content {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px;
+            padding: 50px;
             border-radius: 20px;
             text-align: center;
             color: white;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
         }
 
         .game-over h2 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .game-over p {
-            font-size: 1.2em;
+            font-size: 1.4em;
             margin-bottom: 30px;
+        }
+
+        /* Медиа запросы для адаптивности */
+        @media (max-width: 1024px) {
+            .tetris-grid {
+                grid-template-columns: repeat(10, 30px);
+                grid-template-rows: repeat(20, 30px);
+            }
+            
+            .game-title {
+                font-size: 3em;
+            }
+            
+            .game-container {
+                padding: 25px;
+            }
         }
 
         @media (max-width: 768px) {
             .game-container {
-                padding: 15px;
+                padding: 20px;
             }
             
             .game-area {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
             
             .tetris-grid {
-                grid-template-columns: repeat(10, 22px);
-                grid-template-rows: repeat(20, 22px);
+                grid-template-columns: repeat(10, 28px);
+                grid-template-rows: repeat(20, 28px);
             }
             
             .mobile-controls {
-                display: grid;
+                display: block;
+            }
+            
+            .game-title {
+                font-size: 2.5em;
+            }
+            
+            .score-container {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .score-item {
+                padding: 15px;
+            }
+            
+            .score-value {
+                font-size: 1.5em;
+            }
+            
+            .game-controls {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+                min-width: auto;
+            }
+            
+            .next-piece {
+                order: 1;
+            }
+            
+            .game-button {
+                order: 2;
+                padding: 15px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tetris-grid {
+                grid-template-columns: repeat(10, 24px);
+                grid-template-rows: repeat(20, 24px);
             }
             
             .game-title {
@@ -250,22 +356,62 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            
+            .control-btn {
+                padding: 18px;
+                font-size: 1.6em;
+                min-height: 55px;
+            }
+            
+            .controls-grid {
+                gap: 12px;
+            }
+            
+            .game-over h2 {
+                font-size: 2.2em;
+            }
+            
+            .game-over p {
+                font-size: 1.2em;
+            }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 360px) {
             .tetris-grid {
-                grid-template-columns: repeat(10, 18px);
-                grid-template-rows: repeat(20, 18px);
+                grid-template-columns: repeat(10, 20px);
+                grid-template-rows: repeat(20, 20px);
+            }
+            
+            .control-btn {
+                padding: 15px;
+                font-size: 1.4em;
+                min-height: 50px;
+            }
+            
+            .game-container {
+                padding: 15px;
             }
         }
 
         @keyframes lineComplete {
             0% { background: rgba(255, 255, 255, 0.8); }
+            50% { background: rgba(255, 255, 0, 0.8); }
             100% { background: transparent; }
         }
 
         .line-complete {
-            animation: lineComplete 0.3s ease-in-out;
+            animation: lineComplete 0.4s ease-in-out;
+        }
+
+        /* Улучшенные эффекты для ПК */
+        @media (min-width: 1025px) {
+            .game-container:hover {
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            }
+            
+            .cell.filled {
+                box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4);
+            }
         }
     </style>
 </head>
@@ -306,12 +452,13 @@
         </div>
 
         <div class="mobile-controls">
-            <button class="control-btn" id="rotate-btn">↻</button>
-            <button class="control-btn" id="down-btn">↓</button>
-            <button class="control-btn" id="drop-btn">⬇</button>
-            <button class="control-btn" id="left-btn">←</button>
-            <button class="control-btn" id="right-btn">→</button>
-            <div></div>
+            <div class="controls-grid">
+                <button class="control-btn rotate" id="rotate-btn">↻</button>
+                <button class="control-btn down" id="down-btn">↓</button>
+                <button class="control-btn left" id="left-btn">←</button>
+                <button class="control-btn right" id="right-btn">→</button>
+                <button class="control-btn drop" id="drop-btn">⬇</button>
+            </div>
         </div>
     </div>
 
@@ -403,55 +550,94 @@
             }
 
             loadHighScore() {
-                const saved = localStorage.getItem('tetris-high-score');
-                const highScore = saved ? parseInt(saved) : 0;
-                document.getElementById('high-score').textContent = highScore;
+                // Используем переменную вместо localStorage
+                this.highScore = 0;
+                document.getElementById('high-score').textContent = this.highScore;
             }
 
             saveHighScore() {
-                const currentHigh = parseInt(document.getElementById('high-score').textContent);
-                if (this.score > currentHigh) {
-                    localStorage.setItem('tetris-high-score', this.score.toString());
-                    document.getElementById('high-score').textContent = this.score;
+                if (this.score > this.highScore) {
+                    this.highScore = this.score;
+                    document.getElementById('high-score').textContent = this.highScore;
                     return true;
                 }
                 return false;
             }
 
             setupEventListeners() {
+                // Клавиатурные события
                 document.addEventListener('keydown', (e) => {
                     if (!this.gameRunning) return;
                     
                     switch(e.key) {
                         case 'ArrowLeft':
+                        case 'a':
+                        case 'A':
                             e.preventDefault();
                             this.movePiece(-1, 0);
                             break;
                         case 'ArrowRight':
+                        case 'd':
+                        case 'D':
                             e.preventDefault();
                             this.movePiece(1, 0);
                             break;
                         case 'ArrowDown':
+                        case 's':
+                        case 'S':
                             e.preventDefault();
                             this.movePiece(0, 1);
                             break;
                         case 'ArrowUp':
+                        case 'w':
+                        case 'W':
                         case ' ':
                             e.preventDefault();
                             this.rotatePiece();
                             break;
+                        case 'Enter':
+                            e.preventDefault();
+                            this.dropPiece();
+                            break;
                     }
                 });
 
-                // Мобильные кнопки
-                document.getElementById('left-btn').addEventListener('click', () => this.movePiece(-1, 0));
-                document.getElementById('right-btn').addEventListener('click', () => this.movePiece(1, 0));
-                document.getElementById('down-btn').addEventListener('click', () => this.movePiece(0, 1));
-                document.getElementById('rotate-btn').addEventListener('click', () => this.rotatePiece());
-                document.getElementById('drop-btn').addEventListener('click', () => this.dropPiece());
+                // Мобильные кнопки с улучшенной обработкой
+                this.setupMobileControls();
 
+                // Кнопки управления игрой
                 document.getElementById('start-btn').addEventListener('click', () => this.startGame());
                 document.getElementById('pause-btn').addEventListener('click', () => this.pauseGame());
+            }
+
+            setupMobileControls() {
+                const controls = [
+                    { id: 'left-btn', action: () => this.movePiece(-1, 0) },
+                    { id: 'right-btn', action: () => this.movePiece(1, 0) },
+                    { id: 'down-btn', action: () => this.movePiece(0, 1) },
+                    { id: 'rotate-btn', action: () => this.rotatePiece() },
+                    { id: 'drop-btn', action: () => this.dropPiece() }
+                ];
+
+                controls.forEach(control => {
+                    const btn = document.getElementById(control.id);
+                    
+                    // Обработка касаний
+                    btn.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
+                        if (this.gameRunning) {
+                            control.action();
+                        }
+                    });
+                    
+                    // Обработка кликов мыши (для тестирования на ПК)
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (this.gameRunning) {
+                            control.action();
+                        }
+                    });
+                });
             }
 
             generatePiece() {
@@ -535,7 +721,7 @@
                         }
                     }
                     this.draw();
-                }, Math.max(50, 500 - (this.level - 1) * 50));
+                }, Math.max(100, 800 - (this.level - 1) * 50));
             }
 
             movePiece(dx, dy) {
@@ -619,7 +805,7 @@
                         setTimeout(() => {
                             this.grid.splice(row, 1);
                             this.grid.unshift(Array(10).fill(0));
-                        }, 200);
+                        }, 300);
                         
                         linesCleared++;
                         row++; // Проверяем ту же строку снова
@@ -714,7 +900,16 @@
 
         // Предотвращение скролла на мобильных устройствах
         document.addEventListener('touchmove', function(e) {
-            e.preventDefault();
+            if (e.target.closest('.game-container')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Предотвращение двойного тапа на мобильных
+        document.addEventListener('touchstart', function(e) {
+            if (e.target.closest('.control-btn')) {
+                e.preventDefault();
+            }
         }, { passive: false });
     </script>
 </body>
